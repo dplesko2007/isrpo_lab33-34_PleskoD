@@ -1,0 +1,46 @@
+@baseUrl = http://localhost:5158
+###
+GET {{baseUrl}}/api/notes
+
+###
+GET {{baseUrl}}/api/notes?categoryId=2
+
+###
+GET {{baseUrl}}/api/notes?search=LINQ
+
+###
+GET {{baseUrl}}/api/notes?isPinned=true&minPriority=4
+
+###
+GET {{baseUrl}}/api/notes?archived=true
+
+###
+GET {{baseUrl}}/api/categories
+
+###
+GET {{baseUrl}}/api/categories/2/notes
+
+###
+POST {{baseUrl}}/api/notes
+Content-Type: application/json
+{
+  "title": "Заметка из REST Client",
+  "content": "Тестируем полноценный CRUD с паттерном Repository",
+  "priority": 4,
+  "categoryId": 2
+}
+
+###
+POST {{baseUrl}}/api/categories
+Content-Type: application/json
+{
+  "name": "Хобби",
+  "description": "Заметки о хобби и увлечениях",
+  "color": "#9b59b6"
+}
+
+###
+PATCH {{baseUrl}}/api/notes/3/pin
+
+###
+PATCH {{baseUrl}}/api/notes/3/archive
